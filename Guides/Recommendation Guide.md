@@ -33,7 +33,7 @@ If the plugin doesn't appear after waiting a few minutes: the plugin may not be 
 To configure the plugin open up Plex and go to the plugin tab in the settings
     Plex/Web -> Settings -> Plugins
 
-9: Click the Gear icon for the new plugin in Trakt.tv and configure the settings for what you'll like or just leave it Default
+9: Click the Gear icon for the new plugin in Trakt.tv and configure the settings for what you'll like or just leave it Default.
 
 10: Go to the link at the top labeled
 
