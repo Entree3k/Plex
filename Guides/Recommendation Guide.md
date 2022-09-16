@@ -1,6 +1,6 @@
 1: Download the latest web tools and unzip it, then remove the archive
 
-    https://github.com/ukdtom/WebTools.bundle
+https://github.com/ukdtom/WebTools.bundle
 
 2: Move into the Plex config folder.
 
