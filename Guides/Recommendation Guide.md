@@ -55,7 +55,7 @@ From there you login in with your Trakt.tv account and it will create lists for 
 
     Recommended Movies:
       libraries: Movies
-      trakt_list: [ For Trak.tv list link ]
+      trakt_list: Youur-Trakt.tv-list-link ]
       summary: Movies that are recommended to you
       url_poster: https://i.imgur.com/LCAc6Kh.png
       visible_home: true
