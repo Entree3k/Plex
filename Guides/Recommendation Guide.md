@@ -47,7 +47,7 @@ If you want to create a Trakt.tv list that recommends you new movies and shows b
     
 From there you login in with your Trakt.tv account and it will create lists for you based on your watch history.
 
-![1]([https://i.imgur.com/g6YLwcM.png)
+![Trak.tv List]([https://i.imgur.com/g6YLwcM.png)
 
 11. Go to Trak.tv to view the list that were created.
 
@@ -67,4 +67,4 @@ From there you login in with your Trakt.tv account and it will create lists for 
 14. Open up Plex and go Settings-> (Manage) Libraries-> Manage Recommandations
     From there you can move the collection up or down on the home screen view for catagories.
     
-![1]([https://i.imgur.com/fk7lAJM.png)
+![Home Homescreen]([https://i.imgur.com/fk7lAJM.png)
