@@ -1,0 +1,32 @@
+overlays:
+
+  Trending:
+    overlay:
+      name: Trending
+      url: https://i.imgur.com/g11jGuG.png
+    plex_search:
+      all:
+        collection: Trending Movies
+
+  4K:
+    overlay:
+      name: 4K
+      url: https://i.imgur.com/AzxUHeR.png
+    plex_search:
+      all:
+        resolution: 4K
+
+  CAM:
+    overlay:
+      name: CAM
+      url: https://i.imgur.com/NdbRkIn.png
+    radarr:
+      availability: cinemas
+
+  Oscar:
+    overlay:
+      name: Oscar
+      url: https://i.imgur.com/FGT6KMG.png
+    plex_search:
+      all:
+        collection: Oscars Best Picture Winners

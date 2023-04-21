@@ -1,0 +1,16 @@
+
+######################################################
+#                        TRAKT                       #
+######################################################
+
+collections:
+  Trending Movies:
+    trakt_trending: 30
+    collection_order: custom
+    sync_mode: sync
+    summary: Movies that are currently Trending
+    url_poster: https://theposterdb.com/api/assets/259815
+    url_background:
+    visible_home: true
+    visible_shared: true
+    visible_library: true
