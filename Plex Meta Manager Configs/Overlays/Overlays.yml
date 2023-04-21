@@ -16,13 +16,6 @@ overlays:
       all:
         resolution: 4K
 
-  CAM:
-    overlay:
-      name: CAM
-      url: https://i.imgur.com/NdbRkIn.png
-    radarr:
-      availability: cinemas
-
   Oscar:
     overlay:
       name: Oscar
