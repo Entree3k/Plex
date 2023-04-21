@@ -1,0 +1,17 @@
+overlays:
+
+  TMDB:
+    overlay:
+      name: TMDB
+      url: https://i.imgur.com/g11jGuG.png
+    plex_search:
+      all:
+        collection: Trending Movies
+
+  4K:
+    overlay:
+      name: 4K
+      url: https://i.imgur.com/AzxUHeR.png
+    plex_search:
+      all:
+        resolution: 4K
