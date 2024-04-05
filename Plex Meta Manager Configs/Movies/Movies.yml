@@ -4,6 +4,34 @@
 ######################################################
 
 collections:
+  A24 Collection:
+    libraries: Movies, TV Shows
+    trakt_list: https://trakt.tv/users/fidel-cb/lists/a24-movies-and-tv-shows?sort=released,asc
+    summary: A24 is an American independent entertainment company that specializes in film and television production, as well as film distribution. It is based in New York City. A24 was founded in 2012 by Daniel Katz, David Fenkel and John Hodges.
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/images/a24.jpg
+
+  Marvel Cinematic Universe:
+    libraries: Movies, TV Shows
+    trakt_list: https://trakt.tv/users/donxy/lists/marvel-cinematic-universe?sort=released,desc
+    summary: The Marvel Cinematic Universe is an American media franchise and shared universe centered on a series of superhero films produced by Marvel Studios. The films are based on characters that appear in American comic books published by Marvel Comics.
+    url_poster: https://theposterdb.com/api/assets/139884
+
+  Oscars Best Picture Winners:
+    sort_title: '*Oscars Best Picture Winners'
+    trakt_list: https://trakt.tv/users/pjcob/lists/1970-2021-oscars-best-picture-winners?sort=rank,asc
+    summary: The Academy Award for Best Picture is one of the Academy Awards presented annually by the Academy of Motion Picture Arts and Sciences since the awards debuted in 1929.
+    url_poster: https://theposterdb.com/api/assets/259811
+
+  Recommended Movies:
+    libraries: Movies
+    trakt_list: https://trakt.tv/users/entree3000/lists/movie-recommendations-couchmoney-tv-f01fc84c-2cee-439d-8fea-1bf2c076ee8f?sort=rank,asc
+    summary: Movies that are recommended to you
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/images/recmovies.png
+    url_background:
+    visible_home: true
+    visible_shared: true
+    visible_library: true
+
   Trending Movies:
     trakt_trending: 30
     collection_order: custom
@@ -14,3 +42,15 @@ collections:
     visible_home: true
     visible_shared: true
     visible_library: true
+
+  Universal Monsters Collection:
+    libraries: Movies
+    trakt_list: https://trakt.tv/users/grendelcrusher/lists/universal-classic-monsters?sort=released,desc
+    summary: Universal Classic Monsters (also known as Universal Monsters and Universal Studios Monsters) is a media franchise based on a series of horror films primarily produced by Universal Pictures from the 1930s to the 1950s. Although not initially conceived as a franchise, the enduring popularity and legacy of the films and the characters featured in them has led the studio to market them under the collective brand name of Universal Studios Monsters. Steve Jones of USA Today described Universal's most famous monsters as "pop culture icons”, specifically Dracula, Frankenstein, the Mummy and the Wolf Man.
+    url_poster: https://theposterdb.com/api/assets/259818
+
+  Walt Disney Animation Studios:
+    libraries: Movies
+    trakt_list: https://trakt.tv/users/asterlea/lists/walt-disney-animation-studios?sort=released,desc
+    summary: Walt Disney Animation Studios, sometimes shortened to Disney Animation, is an American animation studio that creates animated features and short films for The Walt Disney Company. Founded on October 16, 1923 by brothers Walt Disney and Roy O. Disney, it is one of the oldest-running animation studios in the world. It is currently organized as a division of Walt Disney Studios and is headquartered at the Roy E. Disney Animation Building at the Walt Disney Studios lot in Burbank, California.
+    url_poster: https://theposterdb.com/api/assets/6016
