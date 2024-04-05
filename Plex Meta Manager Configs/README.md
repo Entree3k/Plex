@@ -1,4 +1,4 @@
-# My Configs for Plex Meta Manager Plex-Meta-Manager
+# My Configs for Plex-Meta-Manager
 
 
 ![Trending](https://user-images.githubusercontent.com/28127566/233728814-d6743ed2-990f-4efe-a7f2-13f8be38e5d3.png)
