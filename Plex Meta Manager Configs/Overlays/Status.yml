@@ -4,7 +4,7 @@
 
   Airing:
     overlay:
-      file: config/overlays/images/status/airing.png
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/airing.png
       name: airing
       group: STATUS
       weight: 900
@@ -13,7 +13,7 @@
   Canceled:
     overlay:
       name: cancelled
-      file: config/overlays/images/status/canceled.png
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/canceled.png
       group: STATUS
       weight: 700
     plex_all: true
@@ -23,7 +23,7 @@
 
   Ended:
     overlay:
-      file: config/overlays/images/status/ended.png
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/ended.png
       name: ended
       group: STATUS
       weight: 600
@@ -34,7 +34,7 @@
 
   Returning:
     overlay:
-      file: config/overlays/images/status/returning.png
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/returning.png
       name: returning
       group: STATUS
       weight: 800
