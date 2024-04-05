@@ -9,7 +9,7 @@ collections:
     collection_order: custom
     sync_mode: sync
     summary: Movies that are currently Trending
-    url_poster: https://theposterdb.com/api/assets/259815
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/images/trending.jpg
     url_background:
     visible_home: true
     visible_shared: true
