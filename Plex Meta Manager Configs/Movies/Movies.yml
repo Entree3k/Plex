@@ -1,9 +1,45 @@
+######################################################
+#                     Collections                    #
+######################################################
+collections:
+  Random Unwatched Movies:
+    libraries: Movies
+    smart_filter:
+      all:
+        audience_rating.gte: 7.0
+        plays.lt: 1
+      sort_by: random
+      limit: 20
+
+######################################################
+#                       IMDB                         #
+######################################################
+  The Wizarding World:
+    imdb_list: https://www.imdb.com/list/ls060991914/
+    url_poster: https://theposterdb.com/api/assets/151007
+
+######################################################
+#                       TMDB                         #
+######################################################
+  Nicolas Cage Collection:
+    tmdb_actor: 2963
+    sort_title: Nicolas Cage
+    collection_order: release
+    summary: AAAAAAAAAAAAA NOT THE BEES! NOT THE BEES! AAAAAAAAARGGGGGGGH MY EYES! MY EYES! AAAAAAAAAAAAAAAAAARGH!!
+    url_poster: https://i.redd.it/5kmjmbyidzl41.png
+
+  Star Wars:
+    tmdb_collection: https://www.themoviedb.org/collection/10-star-wars-collection?language=en-US
+    tmdb_list: https://www.themoviedb.org/list/8136-the-entire-star-wars-collection
+    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/images/star_wars_collection.jpeg
+
+  Studio Ghibli Collection:
+    tmdb_company: https://www.themoviedb.org/company/10342
+    url_poster: https://i.imgur.com/NzonXyI.jpeg
 
 ######################################################
 #                        TRAKT                       #
 ######################################################
-
-collections:
   A24 Collection:
     libraries: Movies, TV Shows
     trakt_list: https://trakt.tv/users/fidel-cb/lists/a24-movies-and-tv-shows?sort=released,asc
