@@ -74,6 +74,11 @@ collections:
     summary: Channel 4 is a British free-to-air public-service television network. Its headquarters are in London, with a national headquarters in Leeds and creative hubs in Glasgow and Bristol. The channel was established to provide a fourth television service to the United Kingdom in addition to the licence-funded BBC One and BBC Two, and the single commercial broadcasting network ITV.
     url_poster: https://theposterdb.com/api/assets/222016
 
+  Channel 5:
+    template: { name: network, network: "Channel 5" }
+    summary: Channel 5 is a British free-to-air public broadcast television channel owned and operated by Channel 5 Broadcasting Limited, a wholly-owned subsidiary of Paramount Global's UK and Australia division. It was launched in 1997 to provide a fifth national terrestrial channel in the United Kingdom.
+    url_poster: https://theposterdb.com/api/assets/265035
+
   Cinemax:
     template: { name: network, network: "Cinemax" }
     summary: Cinemax is an American premium cable and satellite television network owned by the Home Box Office, Inc. subsidiary of WarnerMedia Studios & Networks Group.
@@ -229,10 +234,35 @@ collections:
     summary: TBS is an American pay television network owned by the Turner Entertainment Networks division of WarnerMedia Studios & Networks. It carries a variety of programming, with a focus on comedy, along with some sports events, including Major League Baseball, National Hockey League, NCAA Men's Basketball Tournament and professional wrestling from AEW Dynamite.
     url_poster: https://theposterdb.com/api/assets/220375
 
+  The CW:
+    template: { name: network, network: "The CW" }
+    summary: The CW Television Network is an American commercial broadcast television network that is controlled by Nexstar Media Group through a 75-percent ownership interest.
+    url_poster: https://theposterdb.com/api/assets/224783
+
+  TLC:
+    template: { name: network, network: "TLC" }
+    summary: TLC is an American cable television channel owned by Warner Bros. Discovery. First established in 1980 as The Learning Channel, it initially focused on educational and instructional programming.
+    url_poster: https://theposterdb.com/api/assets/224782
+
   TNT:
     template: { name: network, network: "TNT" }
     summary: TNT is an American basic cable and satellite television channel owned by the Turner Broadcasting System, a division of Time Warner.
     url_poster: https://theposterdb.com/api/assets/220377
+
+  truTV:
+    template: { name: network, network: "truTV" }
+    summary: TruTV is an American basic cable channel owned by Warner Bros. Discovery. The channel primarily broadcasts comedy, docusoaps and reality shows, as well as sports programming produced by TNT Sports.
+    url_poster: https://theposterdb.com/api/assets/222688
+
+   TV Land:
+    template: { name: network, network: " TV Land" }
+    summary: TV Land is an American pay television channel owned by Paramount Global through its networks division.
+    url_poster: https://theposterdb.com/api/assets/489853
+
+  USA Network:
+    template: { name: network, network: "USA Network" }
+    summary: USA Network is an American basic cable television channel owned by the NBCUniversal Media Group division of Comcast's NBCUniversal.
+    url_poster: https://theposterdb.com/api/assets/224786
 
   Vice TV:
     template: { name: network, network: "Vice TV, Viceland" }
