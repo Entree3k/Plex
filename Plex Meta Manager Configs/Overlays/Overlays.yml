@@ -3,7 +3,7 @@ overlays:
   Trending:
     overlay:
       name: Trending
-      url: https://i.imgur.com/g11jGuG.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Trending.png
     plex_search:
       all:
         collection: Trending Movies
@@ -11,7 +11,7 @@ overlays:
   4K:
     overlay:
       name: 4K
-      url: https://i.imgur.com/AzxUHeR.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/4K.png
     plex_search:
       all:
         resolution: 4K
@@ -19,7 +19,23 @@ overlays:
   Oscar:
     overlay:
       name: Oscar
-      url: https://i.imgur.com/FGT6KMG.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Oscar.png
     plex_search:
       all:
         collection: Oscars Best Picture Winners
+
+######################################################
+#                   Show Audio                       #
+######################################################
+
+  Dual-Audio:
+    overlay:
+      name: Dual-Audio
+      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/dual.png
+      group: audio_language
+      weight: 10
+    plex_search:
+      any:
+        genre: Anime
+    filters:
+      audio_language.count_gt: 1
