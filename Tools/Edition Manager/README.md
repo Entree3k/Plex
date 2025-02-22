@@ -1,4 +1,4 @@
-# Edition Manager
+# [Edition Manager](https://github.com/Entree3k/edition-manager)
 
 In Plex, there are two concepts of "version": "[Edition](https://support.plex.tv/articles/multiple-editions/)" and "[Version](https://support.plex.tv/articles/200381043-multi-version-movies/)", but their uses are quite different.
 Edition Manager
