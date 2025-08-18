@@ -18,19 +18,30 @@ overlays:
         added: 21                # that season was added in the last 21 days
         title.not: Specials      # skip Season 00 / Specials
 ```
+## For Movies
+```yml
+overlays:
+  RecentlyAddedMovie:
+    overlay:
+      name: Recently Added
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/recently_added.png
+    plex_search:
+      all:
+        added: 7                   # that season was added in the last 7 days
+```
+## For Shows
 ```yml
 overlays:
   RecentlyAddedShow:
     overlay:
       name: Recently Added
-      file: config/overlays/images/recently_added.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/recently_added.png
       group: RECENT
       weight: 950
     plex_all: true
     filters:
       added: 7                   # that season was added in the last 7 days
 ```
-
 <img width="1445" height="1630" alt="show1" src="https://github.com/user-attachments/assets/ddea1582-4d88-44e2-972a-3e71218dac07" />
 
 ## Just pick the style you want [here](https://github.com/Entree3k/Plex/tree/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status)
