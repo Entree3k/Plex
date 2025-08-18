@@ -1,0 +1,56 @@
+######################################################
+#                        New                         #
+######################################################
+
+overlays:
+  NewSeason:
+    overlay:
+      name: NewSeason
+      file: config/overlays/images/new_season.png
+      group: FRESH
+      weight: 900
+    plex_all: true
+    filters:
+      added.not: 30              # show wasn't added in the last 30 days
+      seasons:
+        percentage: 1            # at least one season matches
+        added: 21                # that season was added in the last 14 days
+        title.not: Specials      # skip Season 00 / Specials
+
+  RecentlyAddedShow:
+    overlay:
+      name: Recently Added
+      file: config/overlays/images/recently_added.png
+      group: RECENT
+      weight: 950
+    plex_all: true
+    filters:
+      added: 7
+
+######################################################
+#                       Audio                        #
+######################################################
+
+  Dual-Audio:
+    overlay:
+      file: config/overlays/images/dual.png
+      name: Dual-Audio
+      group: audio_language
+      weight: 500
+    plex_search:
+      any:
+        genre: Anime
+    filters:
+      audio_language.count_gt: 1
+
+######################################################
+#                       Awards                       #
+######################################################
+      
+  Emmy:
+    overlay:
+      name: Emmy
+      file: config/overlays/images/emmy.png
+    plex_search:
+      all:
+        collection: Emmy Award Winning Series
