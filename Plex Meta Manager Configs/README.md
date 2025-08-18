@@ -15,7 +15,7 @@ overlays:
       added.not: 30              # show wasn't added in the last 30 days
       seasons:
         percentage: 1            # at least one season matches
-        added: 21                # that season was added in the last 14 days
+        added: 21                # that season was added in the last 21 days
         title.not: Specials      # skip Season 00 / Specials
 ```
 ```yml
@@ -28,7 +28,7 @@ overlays:
       weight: 950
     plex_all: true
     filters:
-      added: 7
+      added: 7                   # that season was added in the last 7 days
 ```
 
 <img width="1445" height="1630" alt="show1" src="https://github.com/user-attachments/assets/ddea1582-4d88-44e2-972a-3e71218dac07" />
