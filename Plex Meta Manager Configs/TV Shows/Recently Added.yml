@@ -1,0 +1,26 @@
+######################################################
+#                        TRAKT                       #
+######################################################
+collections:
+  Trending Shows:
+    trakt_chart:
+      chart: trending
+      limit: 30
+    collection_order: custom
+    sync_mode: sync
+    summary: Shows that are currently Trending
+    url_poster: https://images.theposterdb.com/prod/public/images/posters/optimized/categories/1482418/TvePIPMXHjhcf90EQHZo8YU5bc78yNFwQDNZABN1.webp
+    url_background: 
+    visible_home: true
+    visible_shared: true
+    visible_library: true
+
+  Emmy Award Winning Series:
+    trakt_list:
+      - https://trakt.tv/users/pd_review/lists/emmy-award-best-drama
+      - https://trakt.tv/users/pd_review/lists/emmy-award-best-comedy
+    sync_mode: sync
+    collection_order: custom
+    summary: Emmy winners for Outstanding Drama & Comedy Series. Auto-synced from Trakt.
+    url_poster: https://images.theposterdb.com/prod/public/images/posters/optimized/categories/2071539/Km6XFkwhjk7zQUx0ibA2MevAocng2yWI5ehgsBe3.webp
+    file_background: 
