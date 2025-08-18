@@ -1,8 +1,0 @@
-overlays:
-  RecentlyAddedMovie:
-    overlay:
-      name: Recently Added
-      file: config/overlays/images/recently_added.png
-    plex_search:
-      all:
-        added: 7
