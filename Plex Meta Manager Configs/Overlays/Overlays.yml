@@ -1,33 +1,8 @@
-overlays:
-
-  Trending:
-    overlay:
-      name: Trending
-      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Trending.png
-    plex_search:
-      all:
-        collection: Trending Movies
-
-  4K:
-    overlay:
-      name: 4K
-      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/4K.png
-    plex_search:
-      all:
-        resolution: 4K
-
-  Oscar:
-    overlay:
-      name: Oscar
-      url: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Oscar.png
-    plex_search:
-      all:
-        collection: Oscars Best Picture Winners
-
 ######################################################
 #                   Show Audio                       #
 ######################################################
 
+overlays:
   Dual-Audio:
     overlay:
       name: Dual-Audio
