@@ -2,6 +2,35 @@
 
 <img width="1445" height="1087" alt="show" src="https://github.com/user-attachments/assets/6c9f599a-40e3-42d1-b049-b8eb79e08794" />
 
+```yml
+overlays:
+  NewSeason:
+    overlay:
+      name: NewSeason
+      file: config/overlays/images/new_season.png
+      group: FRESH
+      weight: 900
+    plex_all: true
+    filters:
+      added.not: 30              # show wasn't added in the last 30 days
+      seasons:
+        percentage: 1            # at least one season matches
+        added: 21                # that season was added in the last 14 days
+        title.not: Specials      # skip Season 00 / Specials
+```
+```yml
+overlays:
+  RecentlyAddedShow:
+    overlay:
+      name: Recently Added
+      file: config/overlays/images/recently_added.png
+      group: RECENT
+      weight: 950
+    plex_all: true
+    filters:
+      added: 7
+```
+
 <img width="1445" height="1630" alt="show1" src="https://github.com/user-attachments/assets/ddea1582-4d88-44e2-972a-3e71218dac07" />
 
 ## Just pick the style you want [here](https://github.com/Entree3k/Plex/tree/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status)
@@ -99,6 +128,8 @@ overlays:
 ```
 
 <img width="1630" height="699" alt="net" src="https://github.com/user-attachments/assets/886df0f9-aa73-4c8e-96b9-6e96c3c89663" />
+
+## Network config [here](https://github.com/Entree3k/Plex/blob/main/Plex%20Meta%20Manager%20Configs/TV%20Shows/Networks.yml)
 
 ![4k](https://user-images.githubusercontent.com/28127566/233728910-b5bbd5d0-d079-4519-81eb-d2af4a0678e9.png)
 
