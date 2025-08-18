@@ -1,0 +1,18 @@
+######################################################
+#                        New                         #
+######################################################
+
+overlays:
+  NewSeason:
+    overlay:
+      name: NewSeason
+      url: "https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/new_season.png"
+      group: FRESH
+      weight: 900
+    plex_all: true
+    filters:
+      added.not: 30              # show wasn't added in the last 30 days
+      seasons:
+        percentage: 1            # at least one season matches
+        added: 21                # that season was added in the last 21 days
+        title.not: Specials      # skip Season 0 / Specials
