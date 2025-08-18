@@ -7,7 +7,7 @@ overlays:
   NewSeason:
     overlay:
       name: NewSeason
-      file: config/overlays/images/new_season.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/new_season.png
       group: FRESH
       weight: 900
     plex_all: true
@@ -42,6 +42,7 @@ overlays:
     filters:
       added: 7                   # that season was added in the last 7 days
 ```
+---
 <img width="1445" height="1630" alt="show1" src="https://github.com/user-attachments/assets/ddea1582-4d88-44e2-972a-3e71218dac07" />
 
 ## Just pick the style you want [here](https://github.com/Entree3k/Plex/tree/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status)
@@ -88,7 +89,7 @@ overlays:
     filters:
       tmdb_status: canceled
 ```
-
+---
 <img width="1462" height="448" alt="Screenshot 2025-08-18 153953" src="https://github.com/user-attachments/assets/66f360d2-097d-4873-ab9b-7e5230643c97" />
 
 ```yaml
@@ -117,7 +118,7 @@ overlays:
       all:
         collection: Trending Movies
 ```
-
+---
 ![Oscars](https://user-images.githubusercontent.com/28127566/233728846-b0bb434b-08fd-46a7-9ebc-a228a2c33115.png)
 
 ```yaml
@@ -137,11 +138,11 @@ overlays:
       all:
         collection: Oscars Best Picture Winners
 ```
-
+---
 <img width="1630" height="699" alt="net" src="https://github.com/user-attachments/assets/886df0f9-aa73-4c8e-96b9-6e96c3c89663" />
 
 ## Network config [here](https://github.com/Entree3k/Plex/blob/main/Plex%20Meta%20Manager%20Configs/TV%20Shows/Networks.yml)
-
+---
 ![4k](https://user-images.githubusercontent.com/28127566/233728910-b5bbd5d0-d079-4519-81eb-d2af4a0678e9.png)
 
 ```yaml
