@@ -14,7 +14,7 @@ overlays:
       added.not: 30              # show wasn't added in the last 30 days
       seasons:
         percentage: 1            # at least one season matches
-        added: 21                # that season was added in the last 14 days
+        added: 21                # that season was added in the last 21 days
         title.not: Specials      # skip Season 00 / Specials
 
   RecentlyAddedShow:
