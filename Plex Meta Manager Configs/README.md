@@ -53,7 +53,7 @@ overlays:
       url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status/Minimal/airing_minimal.png
       group: STATUS
       weight: 950
-    tmdb_on_the_air: 2000
+    tmdb_on_the_air: 2000                   # looks at 2000 currently airing shows
 
   Returning:
     overlay:
