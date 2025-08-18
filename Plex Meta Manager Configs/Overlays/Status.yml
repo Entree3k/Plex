@@ -2,45 +2,44 @@
 #                  Show Status                       #
 ######################################################
 
+overlays:
   Airing:
     overlay:
-    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/airing.png
       name: airing
+      file: config/overlays/images/status/airing.png
       group: STATUS
-      weight: 900
-    tmdb_on_the_air: 5000
-
-  Canceled:
-    overlay:
-      name: cancelled
-    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/canceled.png
-      group: STATUS
-      weight: 700
-    plex_all: true
-    filters:
-      tmdb_status:
-         - canceled
-
-  Ended:
-    overlay:
-    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/ended.png
-      name: ended
-      group: STATUS
-      weight: 600
-    plex_all: true
-    filters:
-      tmdb_status:
-         - ended
+      weight: 950
+    tmdb_on_the_air: 2000
 
   Returning:
     overlay:
-    url_poster: https://raw.githubusercontent.com/Entree3k/Plex/main/Plex%20Meta%20Manager%20Configs/Overlays/images/status/returning.png
       name: returning
+      file: config/overlays/images/status/returning.png
       group: STATUS
       weight: 800
     plex_all: true
     filters:
       tmdb_status:
-         - returning
-         - planned
-         - production
+        - returning
+        - planned
+        - production
+        
+  Ended:
+    overlay:
+      name: ended
+      file: config/overlays/images/status/ended.png
+      group: STATUS
+      weight: 700
+    plex_all: true
+    filters:
+      tmdb_status: ended
+
+  Canceled:
+    overlay:
+      name: canceled
+      file: config/overlays/images/status/canceled_small.png
+      group: STATUS
+      weight: 600
+    plex_all: true
+    filters:
+      tmdb_status: canceled
