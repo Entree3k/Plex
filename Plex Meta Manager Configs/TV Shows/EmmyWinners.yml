@@ -1,0 +1,13 @@
+######################################################
+#                        TRAKT                       #
+######################################################
+collections:
+  Emmy Award Winning Series:
+    trakt_list:
+      - https://trakt.tv/users/pd_review/lists/emmy-award-best-drama
+      - https://trakt.tv/users/pd_review/lists/emmy-award-best-comedy
+    sync_mode: sync
+    collection_order: custom
+    summary: Emmy winners for Outstanding Drama & Comedy Series. Auto-synced from Trakt.
+    url_poster: https://theposterdb.com/api/assets/579817
+    file_background: 
