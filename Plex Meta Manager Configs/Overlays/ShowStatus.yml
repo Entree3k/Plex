@@ -6,7 +6,7 @@ overlays:
   Airing:
     overlay:
       name: airing
-      file: config/overlays/images/status/airing.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status/Minimal/airing_minimal.png
       group: STATUS
       weight: 950
     tmdb_on_the_air: 2000
@@ -14,7 +14,7 @@ overlays:
   Returning:
     overlay:
       name: returning
-      file: config/overlays/images/status/returning.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status/Minimal/returning_minimal.png
       group: STATUS
       weight: 800
     plex_all: true
@@ -27,7 +27,7 @@ overlays:
   Ended:
     overlay:
       name: ended
-      file: config/overlays/images/status/ended.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status/Minimal/ended_minimal.png
       group: STATUS
       weight: 700
     plex_all: true
@@ -37,7 +37,7 @@ overlays:
   Canceled:
     overlay:
       name: canceled
-      file: config/overlays/images/status/canceled_small.png
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status/Lower%20Small/canceled_small.png
       group: STATUS
       weight: 600
     plex_all: true
