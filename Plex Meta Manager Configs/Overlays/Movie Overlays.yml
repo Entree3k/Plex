@@ -1,0 +1,44 @@
+######################################################
+#                       Movies                       #
+######################################################
+
+overlays:
+  Trending:
+    overlay:
+      name: Trending
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/trending.png
+    plex_search:
+      all:
+        collection: Trending Movies
+
+  4K:
+    overlay:
+      name: 4K
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/4k.png
+    plex_search:
+      all:
+        resolution: 4K
+
+  Cannes:
+    overlay:
+      name: Cannes
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/cannes.png
+    plex_search:
+      all:
+        collection: Cannes Winners
+
+  Oscar:
+    overlay:
+      name: Oscar
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/oscar.png
+    plex_search:
+      all:
+        collection: Oscars Best Picture Winners
+
+  Recently Added:
+    overlay:
+      name: Recently Added
+      url: https://github.com/Entree3k/Plex/blob/main/Plex%20Meta%20Manager%20Configs/Overlays/images/recently_added.png
+    plex_search:
+      all:
+        added: 7
