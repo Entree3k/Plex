@@ -1,0 +1,10 @@
+overlays:
+RecentlyAddedShow:
+    overlay:
+      name: Recently Added
+      url: https://raw.githubusercontent.com/Entree3k/Plex/refs/heads/main/Plex%20Meta%20Manager%20Configs/Overlays/images/recently_added.png
+      group: RECENT
+      weight: 950
+    plex_all: true
+    filters:
+      added: 7
