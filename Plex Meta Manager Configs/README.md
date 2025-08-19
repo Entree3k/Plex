@@ -45,7 +45,7 @@ overlays:
 ---
 <img width="1445" height="1630" alt="show1" src="https://github.com/user-attachments/assets/ddea1582-4d88-44e2-972a-3e71218dac07" />
 
-## Just pick the style you want [here](https://github.com/Entree3k/Plex/tree/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status)
+## Just pick the style you want [here](https://github.com/Entree3k/Plex/tree/main/Plex%20Meta%20Manager%20Configs/Overlays/images/Status) and update the url for the overlay
 ```yaml
 overlays:
   Airing:
