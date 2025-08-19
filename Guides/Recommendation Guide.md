@@ -1,3 +1,5 @@
+# OUTDATED
+
 1: Download the latest web tools and unzip it, then remove the archive
 
 https://github.com/ukdtom/WebTools.bundle
@@ -68,3 +70,4 @@ From there you login in with your Trakt.tv account and it will create lists for 
     From there you can move the collection up or down on the home screen view for catagories.
     
 ![Home Homescreen]([https://i.imgur.com/fk7lAJM.png)
+
