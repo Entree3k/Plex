@@ -1,4 +1,4 @@
-# **Poster Save**
+# **[Poster Save](https://github.com/Entree3k/Plex/blob/main/Tools/Edition%20Manager/poster_save.py)**
 
 A lightweight tool for Plex users who want full control over their media artwork.
 It automatically downloads **posters**, **backgrounds**, and **season artwork** directly from your Plex server and saves them next to your media files in a clean, consistent format that Plex, Jellyfin, and Emby can all recognize.
