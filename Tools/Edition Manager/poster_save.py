@@ -10,10 +10,6 @@ from plexapi.server import PlexServer
 import requests
 from PIL import Image
 
-# ----------------------------
-# Config
-# ----------------------------
-
 THIS_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = THIS_DIR / "config.ini"
 
@@ -31,7 +27,6 @@ def load_config() -> configparser.ConfigParser:
     if CONFIG_PATH.exists():
         cfg.read(CONFIG_PATH)
 
-    # Ensure default sections/keys exist
     for section, values in DEFAULT_CONFIG.items():
         if section not in cfg:
             cfg[section] = {}
@@ -47,9 +42,6 @@ def save_config(cfg: configparser.ConfigParser) -> None:
 
 CONFIG = load_config()
 
-# ----------------------------
-# User Options (now from config)
-# ----------------------------
 PLEX_URL   = CONFIG["PLEX"]["url"].strip()
 PLEX_TOKEN = CONFIG["PLEX"]["token"].strip()
 
@@ -295,9 +287,9 @@ def save_item(item, poster=False, art=False):
             art_url = show_art or getattr(item, "artUrl", None)
 
             if art_url:
-                show_dir = save_path.parent  # go up from ...\Season 01\ to ...\<Show Name>\\
+                show_dir = save_path.parent
                 _save_asset(
-                    item,                    # just for logging
+                    item,
                     art_url,
                     show_dir,
                     base="background",
@@ -315,11 +307,6 @@ def save_item(item, poster=False, art=False):
                     display_name="background"
                 )
 
-# ----------------------------
-# GUI (PySide6)
-# ----------------------------
-
-# We import PySide6 lazily so the CLI can still run even if PySide6 isn't installed.
 def run_gui():
     try:
         from PySide6.QtWidgets import (
@@ -337,21 +324,17 @@ def run_gui():
             super().__init__(parent)
             self.setWindowTitle("Plex Config")
 
-            # URL + Token inputs
             self.url_edit = QLineEdit(PLEX_URL)
             self.token_edit = QLineEdit(PLEX_TOKEN)
             self.token_edit.setEchoMode(QLineEdit.Password)
 
-            # Output format dropdown
             self.format_combo = QComboBox()
             self.format_combo.addItems(["jpg", "png"])
             self.format_combo.setCurrentText(OUTPUT_FORMAT)
 
-            # Overwrite checkbox
             self.overwrite_cb = QCheckBox("Overwrite existing images")
             self.overwrite_cb.setChecked(OVERWRITE)
 
-            # Layout
             form = QFormLayout()
             form.addRow("Server URL:", self.url_edit)
             form.addRow("Token:", self.token_edit)
@@ -379,16 +362,13 @@ def run_gui():
                 QMessageBox.warning(self, "Missing URL", "Please enter a Plex server URL.")
                 return
 
-            # Update config object
             CONFIG["PLEX"]["url"] = url
             CONFIG["PLEX"]["token"] = token
             CONFIG["PLEX"]["output_format"] = format_value
             CONFIG["PLEX"]["overwrite"] = overwrite_value
 
-            # Save config.ini
             save_config(CONFIG)
 
-            # Update globals
             PLEX_URL = url
             PLEX_TOKEN = token
             OUTPUT_FORMAT = format_value
@@ -406,7 +386,6 @@ def run_gui():
             self.setCentralWidget(central)
             main_layout = QVBoxLayout(central)
 
-            # Mode: Title or Library sweep
             mode_layout = QHBoxLayout()
             mode_layout.addWidget(QLabel("Mode:"))
             self.mode_combo = QComboBox()
@@ -414,21 +393,18 @@ def run_gui():
             mode_layout.addWidget(self.mode_combo)
             main_layout.addLayout(mode_layout)
 
-            # Title
             title_layout = QHBoxLayout()
             title_layout.addWidget(QLabel("Title:"))
             self.title_edit = QLineEdit()
             title_layout.addWidget(self.title_edit)
             main_layout.addLayout(title_layout)
 
-            # Library name
             lib_layout = QHBoxLayout()
             lib_layout.addWidget(QLabel("Library:"))
             self.library_edit = QLineEdit()
             lib_layout.addWidget(self.library_edit)
             main_layout.addLayout(lib_layout)
 
-            # Libtype
             type_layout = QHBoxLayout()
             type_layout.addWidget(QLabel("Type:"))
             self.type_combo = QComboBox()
@@ -439,7 +415,6 @@ def run_gui():
             type_layout.addWidget(self.type_combo)
             main_layout.addLayout(type_layout)
 
-            # Options
             opts_layout = QHBoxLayout()
             self.poster_cb = QCheckBox("Poster")
             self.poster_cb.setChecked(True)
@@ -452,7 +427,6 @@ def run_gui():
             opts_layout.addWidget(self.season_art_cb)
             main_layout.addLayout(opts_layout)
 
-            # Buttons
             btn_layout = QHBoxLayout()
             self.run_btn = QPushButton("Run")
             self.config_btn = QPushButton("Config…")
@@ -460,7 +434,6 @@ def run_gui():
             btn_layout.addWidget(self.config_btn)
             main_layout.addLayout(btn_layout)
 
-            # Log output
             self.log = QTextEdit()
             self.log.setReadOnly(True)
             main_layout.addWidget(self.log)
@@ -470,7 +443,6 @@ def run_gui():
 
         def append_log(self, text: str):
             self.log.append(text)
-            # Also print to console in case user runs from terminal
             print(text)
 
         def on_config(self):
@@ -511,7 +483,6 @@ def run_gui():
                     return
                 self.run_title_mode(plex, title, library, libtype, poster, art, season, season_art)
             else:
-                # Library sweep mode
                 if not library:
                     QMessageBox.warning(self, "Missing library", "Please enter a library name.")
                     return
@@ -523,7 +494,6 @@ def run_gui():
                 QMessageBox.information(self, "No results", "No items found for that query.")
                 return
 
-            # If more than one result, let user pick
             if len(results) > 1:
                 from PySide6.QtWidgets import QInputDialog
                 items_str = [_describe_item_for_pick(it) for it in results]
@@ -546,7 +516,6 @@ def run_gui():
 
             try:
                 if season:
-                    # same logic as CLI season mode
                     if getattr(chosen, "type", None) == "show":
                         if poster or art:
                             self.append_log("Saving show-level assets…")
@@ -581,7 +550,6 @@ def run_gui():
                     )
                     return
 
-                # Non-season mode
                 self.append_log("Saving assets…")
                 save_item(chosen, poster=poster, art=art)
                 self.append_log("Done.")
@@ -609,10 +577,6 @@ def run_gui():
     win = MainWindow()
     win.show()
     sys.exit(app.exec())
-
-# ----------------------------
-# CLI entry point
-# ----------------------------
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -670,9 +634,6 @@ if __name__ == "__main__":
 
     opts = parser.parse_args()
 
-# -------------------------------------------------
-# --config: create config.ini and exit (no Plex needed)
-# -------------------------------------------------
     if opts.config:
         if CONFIG_PATH.exists():
             print(f"Config file already exists at: {CONFIG_PATH}")
@@ -690,18 +651,15 @@ if __name__ == "__main__":
             print(f"Config file created at: {CONFIG_PATH}")
         sys.exit(0)
 
-    # GUI mode
     if opts.gui:
         run_gui()
         sys.exit(0)
 
-    # CLI mode: adjust format/overwrite from args if given
     if opts.format:
         OUTPUT_FORMAT = opts.format
     if opts.overwrite:
         OVERWRITE = (opts.overwrite.lower() == "true")
 
-    # Require Plex config for any non-config, non-GUI usage
     if not PLEX_URL or not PLEX_TOKEN:
         print("Plex URL or token not set. Run with --gui and use Config, or edit config.ini.")
         sys.exit(1)
@@ -758,4 +716,5 @@ if __name__ == "__main__":
         save_library(library, opts.libtype, opts.poster, opts.art)
 
     else:
+
         print("No --rating_key, --title, or --library specified. Exiting.")
