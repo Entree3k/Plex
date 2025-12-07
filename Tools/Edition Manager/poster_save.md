@@ -337,3 +337,234 @@ Show Folder/
  └─ Season 02/
      └─ season 02.jpg
 ```
+
+---
+
+# **Mapped Folders (Docker / Unraid / Synology / Local Path Translation)**
+
+When Plex runs inside Docker, it reports media file paths **inside the container**, not on your host machine.
+Poster Save must translate those container paths into real host paths so artwork can be saved next to your actual files.
+
+This translation is defined in the **`[MAPPED_FOLDERS]`** section of `config.ini`.
+
+---
+
+📌 Complete Example Config for Network Shares
+```
+[MAPPED_FOLDERS]
+\\NAS01\Media\Movies = /movies   # Network Attached Storage Example
+\\NAS01\Media\TV = /tv           # Network Attached Storage Example
+Z:\Movies = /movies              # Local Linux Example
+/Volumes/MediaShare/TV = /tv
+/mnt/nas/Movies = /movies
+```
+
+You can include as many lines as you want — Poster Save will check each one.
+
+---
+# **How to Configure Mapped Folders**
+
+Each entry in the section follows this format:
+
+```
+HOST_PATH = CONTAINER_PATH
+```
+
+Left side -> where your media **really** lives on your computer or NAS
+Right side -> the path your **Docker Plex container** sees internally
+
+Example structure:
+
+```ini
+[MAPPED_FOLDERS]
+/real/filesystem/path = /path/inside/container
+```
+
+You can define **as many mappings as you need**.
+
+---
+
+# **Common Examples**
+
+Below are several real-world configurations so users can copy the one matching their setup.
+
+---
+
+## **1. Unraid Example**
+
+**Docker template mapping:**
+
+```
+Container Path: /data/movies  →  Host Path: /mnt/user/Media/movies
+Container Path: /data/tv      →  Host Path: /mnt/user/Media/tv
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+/mnt/user/Media/movies = /data/movies
+/mnt/user/Media/tv = /data/tv
+```
+
+---
+
+## **2. Docker Compose Example**
+
+**docker-compose.yml:**
+
+```yaml
+volumes:
+  - /media/movies:/plexdata/movies
+  - /media/shows:/plexdata/shows
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+/media/movies = /plexdata/movies
+/media/shows = /plexdata/shows
+```
+
+---
+
+## **3. Synology NAS Example**
+
+**Docker mapping:**
+
+```
+/volume1/video/movies → /movies
+/volume1/video/tv → /tv
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+/volume1/video/movies = /movies
+/volume1/video/tv = /tv
+```
+
+---
+
+## **4. TrueNAS SCALE Example**
+
+**Mountpoints:**
+
+```
+/mnt/tank/Media/Movies → /data/movies
+/mnt/tank/Media/TV → /data/tv
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+/mnt/tank/Media/Movies = /data/movies
+/mnt/tank/Media/TV = /data/tv
+```
+
+---
+
+## **5. Linux Server Running Plex WITHOUT Docker**
+
+If Plex runs bare-metal, Plex already reports real paths.
+
+You can leave the section **empty**:
+
+```ini
+[MAPPED_FOLDERS]
+```
+
+(Poster Save will just use the normal filesystem paths directly.)
+
+---
+
+## **6. Windows Server Running Plex (No Docker)**
+
+Your media might be stored at:
+
+```
+D:\Media\Movies
+D:\Media\TV
+```
+
+In this scenario, Plex returns the correct Windows paths, so you can keep:
+
+```ini
+[MAPPED_FOLDERS]
+```
+
+Or optionally specify mappings if you rename/move drives.
+
+---
+
+## **7. Docker on Windows (WSL + Bind Mounts)**
+
+Your compose file:
+
+```
+C:\Media\Movies → /movies
+C:\Media\TV → /tv
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+C:\Media\Movies = /movies
+C:\Media\TV = /tv
+```
+
+---
+
+## **8. Remote SMB or NFS Storage Example**
+
+Mounted share:
+
+```
+Plex container sees:  /mnt/nfs/movies
+Host sees:            /mnt/storage1/movies
+```
+
+**config.ini:**
+
+```ini
+[MAPPED_FOLDERS]
+/mnt/storage1/movies = /mnt/nfs/movies
+```
+
+---
+
+# **How It Works Internally**
+
+If Plex returns:
+
+```
+/data/movies/Inception (2010)
+```
+
+Poster Save finds the matching mapping:
+
+```
+/mnt/user/Media/movies = /data/movies
+```
+
+Then rewrites the path to:
+
+```
+/mnt/user/Media/movies/Inception (2010)
+```
+
+This ensures artwork is always saved in your **real movie folder**, not inside Docker.
+
+---
+
+# **If You Don’t Use Docker**
+
+Just leave the section empty:
+
+```ini
+[MAPPED_FOLDERS]
+```
