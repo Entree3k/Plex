@@ -17,9 +17,10 @@ DEFAULT_CONFIG = {
     "PLEX": {
         "url": "http://127.0.0.1:32400",
         "token": "",
-        "output_format": "jpg",  # "jpg" or "png"
-        "overwrite": "false",    # "true" or "false"
-    }
+        "output_format": "jpg",
+        "overwrite": "false",
+    },
+    "MAPPED_FOLDERS": {}
 }
 
 def load_config() -> configparser.ConfigParser:
@@ -51,12 +52,12 @@ if OUTPUT_FORMAT not in {"jpg", "png"}:
 
 OVERWRITE = CONFIG["PLEX"].get("overwrite", "false").lower() == "true"
 
-# Docker mapped folders (unchanged – edit to taste)
-MAPPED_FOLDERS = {
-    r"\\TOWER\Media\movies": "/data/movies",
-    r"\\TOWER\Media\tv": "/data/tv",
-}
-_MAPPED_FOLDERS = {Path(host): Path(container) for host, container in MAPPED_FOLDERS.items()}
+MAPPED_FOLDERS = {}
+if "MAPPED_FOLDERS" in CONFIG:
+    for host, container in CONFIG["MAPPED_FOLDERS"].items():
+        MAPPED_FOLDERS[Path(host)] = Path(container)
+
+_MAPPED_FOLDERS = MAPPED_FOLDERS
 
 def map_path(file_path: Path) -> Path:
     for host, container in _MAPPED_FOLDERS.items():
@@ -312,9 +313,11 @@ def run_gui():
         from PySide6.QtWidgets import (
             QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
             QLabel, QLineEdit, QPushButton, QCheckBox, QComboBox,
-            QTextEdit, QMessageBox, QDialog, QFormLayout, QDialogButtonBox
+            QTextEdit, QMessageBox, QDialog, QFormLayout, QDialogButtonBox,
+            QListWidget, QListWidgetItem
         )
         from PySide6.QtCore import Qt
+
     except ImportError:
         print("PySide6 is not installed. Install it with 'pip install PySide6' to use the GUI.")
         sys.exit(1)
@@ -335,23 +338,89 @@ def run_gui():
             self.overwrite_cb = QCheckBox("Overwrite existing images")
             self.overwrite_cb.setChecked(OVERWRITE)
 
+            self.map_list = QListWidget()
+            if "MAPPED_FOLDERS" in CONFIG:
+                for host, container in CONFIG["MAPPED_FOLDERS"].items():
+                    item = QListWidgetItem(f"{host}  →  {container}")
+                    item.setData(Qt.UserRole, (host, container))
+                    self.map_list.addItem(item)
+
+            self.host_edit = QLineEdit()
+            self.container_edit = QLineEdit()
+
+            self.add_btn = QPushButton("Add / Update")
+            self.remove_btn = QPushButton("Remove selected")
+
+            self.add_btn.clicked.connect(self.on_add_mapping)
+            self.remove_btn.clicked.connect(self.on_remove_mapping)
+            self.map_list.itemSelectionChanged.connect(self.on_selection_changed)
+
             form = QFormLayout()
             form.addRow("Server URL:", self.url_edit)
             form.addRow("Token:", self.token_edit)
             form.addRow("Output format:", self.format_combo)
             form.addRow("Overwrite:", self.overwrite_cb)
+            form.addRow("Mapped folders:", self.map_list)
+            form.addRow("Host path:", self.host_edit)
+            form.addRow("Container path:", self.container_edit)
 
             buttons = QDialogButtonBox(QDialogButtonBox.Save | QDialogButtonBox.Cancel)
             buttons.accepted.connect(self.accept)
             buttons.rejected.connect(self.reject)
 
+            btn_row = QHBoxLayout()
+            btn_row.addWidget(self.add_btn)
+            btn_row.addWidget(self.remove_btn)
+
             layout = QVBoxLayout()
             layout.addLayout(form)
+            layout.addLayout(btn_row)
             layout.addWidget(buttons)
             self.setLayout(layout)
 
+        def on_selection_changed(self):
+            item = self.map_list.currentItem()
+            if not item:
+                return
+            host, container = item.data(Qt.UserRole)
+            self.host_edit.setText(host)
+            self.container_edit.setText(container)
+
+        def on_add_mapping(self):
+            host = self.host_edit.text().strip()
+            container = self.container_edit.text().strip()
+
+            if not host or not container:
+                QMessageBox.warning(self, "Missing values", "Please enter both host and container paths.")
+                return
+
+            existing = None
+            for i in range(self.map_list.count()):
+                it = self.map_list.item(i)
+                h, c = it.data(Qt.UserRole)
+                if h == host:
+                    existing = it
+                    break
+
+            text = f"{host}  →  {container}"
+            if existing is None:
+                item = QListWidgetItem(text)
+                item.setData(Qt.UserRole, (host, container))
+                self.map_list.addItem(item)
+            else:
+                existing.setText(text)
+                existing.setData(Qt.UserRole, (host, container))
+
+            self.host_edit.clear()
+            self.container_edit.clear()
+
+        def on_remove_mapping(self):
+            row = self.map_list.currentRow()
+            if row >= 0:
+                self.map_list.takeItem(row)
+
         def accept(self):
-            global CONFIG, PLEX_URL, PLEX_TOKEN, OUTPUT_FORMAT, OVERWRITE
+            global CONFIG, PLEX_URL, PLEX_TOKEN, OUTPUT_FORMAT, OVERWRITE, MAPPED_FOLDERS, _MAPPED_FOLDERS
 
             url = self.url_edit.text().strip()
             token = self.token_edit.text().strip()
@@ -367,12 +436,27 @@ def run_gui():
             CONFIG["PLEX"]["output_format"] = format_value
             CONFIG["PLEX"]["overwrite"] = overwrite_value
 
+            if "MAPPED_FOLDERS" not in CONFIG:
+                CONFIG["MAPPED_FOLDERS"] = {}
+
+            CONFIG["MAPPED_FOLDERS"].clear()
+            for i in range(self.map_list.count()):
+                item = self.map_list.item(i)
+                host, container = item.data(Qt.UserRole)
+                CONFIG["MAPPED_FOLDERS"][host] = container
+
             save_config(CONFIG)
 
             PLEX_URL = url
             PLEX_TOKEN = token
             OUTPUT_FORMAT = format_value
             OVERWRITE = (overwrite_value == "true")
+
+            MAPPED_FOLDERS = {}
+            if "MAPPED_FOLDERS" in CONFIG:
+                for host, container in CONFIG["MAPPED_FOLDERS"].items():
+                    MAPPED_FOLDERS[Path(host)] = Path(container)
+            _MAPPED_FOLDERS = MAPPED_FOLDERS
 
             super().accept()
 
@@ -645,6 +729,11 @@ if __name__ == "__main__":
                 "token": "",
                 "output_format": "jpg",
                 "overwrite": "false",
+            }
+            # You can leave this empty, or pre-populate with your mappings
+            cfg["MAPPED_FOLDERS"] = {
+                r"\\TOWER\Media\movies": "/data/movies",
+                r"\\TOWER\Media\tv": "/data/tv",
             }
             with open(CONFIG_PATH, "w", encoding="utf-8") as f:
                 cfg.write(f)
